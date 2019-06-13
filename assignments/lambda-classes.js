@@ -55,5 +55,15 @@ class Students extends Person{
 class ProjectManagers extends Instructors {
   constructor(attrs) {
     super(attrs);
+    this.gradClassName = attrs.gradClassName;
+    this.favInstructor = attrs.favInstructor;
+  }
+
+  standUp(channel) {
+    `${this.name} announces to ${channel}, @channel standby times!`
+  }
+
+  debugsCode(studentObj, subject) {
+    `${this.name} debugs ${studentObj.name}'s code on ${subject}`
   }
 }
