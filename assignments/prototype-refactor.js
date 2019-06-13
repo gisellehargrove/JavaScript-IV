@@ -30,15 +30,6 @@ class GameObject {
   }
 }
 
-// function GameObject(attrs) {
-//   this.createdAt = attrs.createdAt;
-//   this.name = attrs.name;
-//   this.dimensions = attrs.dimensions;
-// }
-//
-// GameObject.prototype.destroy = function() {
-//   return `${this.name} was removed from the game.`
-// }
 /*
   === CharacterStats ===
   * healthPoints
@@ -58,17 +49,6 @@ class CharacterStats  extends GameObject{
   }
 }
 
-// function CharacterStats(attrs) {
-//   this.healthPoints = attrs.healthPoints;
-//   // inherit GameObjects methods
-//   GameObject.call(this, attrs);
-// }
-
-// CharacterStats.prototype = Object.create(GameObject.prototype);
-
-// CharacterStats.prototype.takeDamage = function() {
-//   return `${this.name} took damage.`
-// }
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
   * team
@@ -91,18 +71,6 @@ class Humanoid extends CharacterStats {
     return `${this.name} offeres a greeting in ${this.language}`;
   }
 }
-
-// function Humanoid(attrs) {
-//   CharacterStats.call(this, attrs);
-//   this.team = attrs.team;
-//   this.weapons = attrs.weapons;
-//   this.language = attrs.language;
-// }
-// Humanoid.prototype = Object.create(CharacterStats.prototype);
-//
-// Humanoid.prototype.greet = function() {
-//   return `${this.name} offeres a greeting in ${this.language}`
-// }
 
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
@@ -181,16 +149,17 @@ class Humanoid extends CharacterStats {
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
-  function Hero(attrs) {
-    Humanoid.call(this, attrs)
-    this.attack = function() {
+  class Hero extends Humanoid {
+    constructor(attrs) {
+      super(attrs);
+      this.attack = function() {
 
+      }
     }
-
   }
 
-  function Villain(attrs) {
-    Humanoid.call(this, attrs)
-
-
+  class Villain extends Humanoid {
+    constructor(attrs) {
+      super(attrs);
+    }
   }
