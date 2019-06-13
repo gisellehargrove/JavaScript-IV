@@ -25,7 +25,11 @@ class Instructors extends Person {
   }
 
   grade(studentObj, studentStr) {
-    `${studentObj.name} receives a perfect score on ${studentStr}`;
+    // generate a random number between 1 and 100
+    let randomNum = Math.floor(Math.random() * 100);
+    // subtract the random num from the students grade
+    let grade = studentObj.grade - randomNum
+    return `${studentObj.name} receives a score of ${grade} on ${studentStr}`;
   }
 
   // Stretch
@@ -41,7 +45,7 @@ class Students extends Person{
     this.previousBackground = attrs.previousBackground;
     this.favSubjects = attrs.favSubjects;
     // Stretch
-    this.grade = 95;
+    this.grade = 100;
   }
 
   listsSubjects() {
@@ -51,11 +55,11 @@ class Students extends Person{
   }
 
   PRAssignment(subject) {
-    `${this.name} has submitted a PR for ${subject}`;
+    return `${this.name} has submitted a PR for ${subject}`;
   }
 
   sprintChallenge(subject) {
-    `${this.namen} has begun sprint challenge on ${subject}`;
+    return `${this.namen} has begun sprint challenge on ${subject}`;
   }
 }
 
@@ -67,11 +71,11 @@ class ProjectManagers extends Instructors {
   }
 
   standUp(channel) {
-    `${this.name} announces to ${channel}, @channel standby times!`
+    return `${this.name} announces to ${channel}, @channel standby times!`
   }
 
   debugsCode(studentObj, subject) {
-    `${this.name} debugs ${studentObj.name}'s code on ${subject}`
+    return `${this.name} debugs ${studentObj.name}'s code on ${subject}`
   }
 }
 
@@ -99,6 +103,7 @@ const mike = new Students({
 console.log(fred.specialty);
 console.log(fred.speak());
 console.log(fred.catchPhrase);
+
 
 //check student class
 console.log(mike.name);
