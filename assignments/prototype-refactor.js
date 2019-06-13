@@ -46,20 +46,15 @@ class GameObject {
   * should inherit destroy() from GameObject's prototype
 */
 
-class CharacterStats {
+class CharacterStats  extends GameObject{
   constructor(attrs) {
+    super(attrs);
+    this.healthPoints = attrs.healthPoints;
     this.healthPoints = attrs.healthPoints;
   }
 
   takeDamage() {
     return `${this.name} took damage.`;
-  }
-}
-
-class GameObject extends CharacterStats {
-  constructor(attrs) {
-    super(attrs);
-    this.healthPoints = attrs.healthPoints;
   }
 }
 
