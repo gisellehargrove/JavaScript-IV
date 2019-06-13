@@ -28,13 +28,10 @@ class Instructors extends Person {
     // generate a random number between 1 and 100
     let randomNum = Math.floor(Math.random() * 100);
     // subtract the random num from the students grade
-    let grade = studentObj.grade - randomNum
+    let grade = studentObj.grade - randomNum;
+    // set the grade to the new calculated grade
+    studentObj.grade = grade;
     return `${studentObj.name} receives a score of ${grade} on ${studentStr}`;
-  }
-
-  // Stretch
-  calculateGrade() {
-
   }
 }
 
@@ -60,6 +57,15 @@ class Students extends Person{
 
   sprintChallenge(subject) {
     return `${this.namen} has begun sprint challenge on ${subject}`;
+  }
+
+  graduate() {
+    // here's your ternary WILL!
+    let graduated = (this.grade > 70) ? true : false;
+    let passStr = `Congratulations ${this.name}, you have graduated with a score of ${this.grade}!`;
+    let failStr = `I'm sorry ${this.name}, you have been held back because of your current grade of ${this.grade}`;
+    // here's another ternary WILL!
+    return (graduated) ? passStr : failStr;
   }
 }
 
@@ -103,8 +109,10 @@ const mike = new Students({
 console.log(fred.specialty);
 console.log(fred.speak());
 console.log(fred.catchPhrase);
+console.log(fred.grade(mike, 'math'));
 
 
 //check student class
 console.log(mike.name);
 console.log(mike.listsSubjects());
+console.log(mike.graduate());
