@@ -27,6 +27,11 @@ class Instructors extends Person {
   grade(studentObj, studentStr) {
     `${studentObj.name} receives a perfect score on ${studentStr}`;
   }
+
+  // Stretch
+  calculateGrade() {
+
+  }
 }
 
 class Students extends Person{
@@ -35,6 +40,8 @@ class Students extends Person{
 
     this.previousBackground = attrs.previousBackground;
     this.favSubjects = attrs.favSubjects;
+    // Stretch
+    this.grade = 95;
   }
 
   listsSubjects() {
@@ -67,3 +74,32 @@ class ProjectManagers extends Instructors {
     `${this.name} debugs ${studentObj.name}'s code on ${subject}`
   }
 }
+
+
+// Test to see if everything works correctly
+const fred = new Instructors({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
+
+
+// New Student
+const mike = new Students({
+  name: 'Mike',
+  location: 'USA',
+  age: 21,
+  previousBackground: 'Civil Engineer',
+  favSubjects: ['Math', 'Spanish', 'Javascript']
+})
+
+console.log(fred.specialty);
+console.log(fred.speak());
+console.log(fred.catchPhrase);
+
+//check student class
+console.log(mike.name);
+console.log(mike.listsSubjects());
